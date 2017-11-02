@@ -34,7 +34,7 @@ puts "5 skills added"
 		body: "Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsum
 					 Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsum
 					 Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsum", 
-		main_image: "https://placeholdit.co//i/600x400?&bg=f9e267&fc=000000&text=Portfolio%20item", 
+		main_image: "https://placeholdit.co//i/600x400?&bg=f9e267&fc=000000&text=Portfolio%20Item", 
 		thumb_image: "https://placeholdit.co//i/350x200?&bg=99eeff&fc=000000&text=Thumb%20Item"
 	)
 end
