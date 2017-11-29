@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/linardsb/copyright_tool
+  revision: b06ab30a3781263c52433ebec80a9ad01fb52732
+  specs:
+    copyright_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -186,6 +192,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.beta2.1)
   byebug
   coffee-rails (~> 4.2)
+  copyright_tool!
   devise (~> 4.3)
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)

@@ -56,3 +56,5 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'devise', '~> 4.3'
 
 gem 'bootstrap', '~> 4.0.0.beta2.1'
+
+gem 'copyright_tool', git: 'https://github.com/linardsb/copyright_tool'
