@@ -160,3 +160,46 @@ body {
     width: 55rem;
   }
 }
+
+/*
+ * Custom styles
+ */
+
+ .card-block {
+  color: #1a1a1a;
+  text-align: left; 
+  text-shadow:none;
+ }
+
+.edit_user, .edit_user_title{
+  width:90%;
+  margin:0 auto;
+ }
+
+.auth-links a{
+  padding: 5px;
+  color: #FFFFFF;
+  background-color:#1a1a1a;
+  font-weight: 800;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #FFFFFF;
+    color: #1a1a1a;
+  }
+}
+
+.btn, .btn-primary {
+  border-radius: 0px;
+}
+
+.back_btn_container {
+  margin: 2rem 0 1rem 0;
+}
+
+
+
+
+
+
+
