@@ -192,6 +192,7 @@ body {
     background-color: #FFFFFF;
     color: #1a1a1a;
   }
+
 }
 
 .btn, .btn-primary {
@@ -216,6 +217,40 @@ body {
 .signup_new {
   margin-top:1rem;
 }
+
+.login_auth_links {
+ margin: 1rem 0 1rem 0;
+}
+
+.login_auth_links, .auth-links a:nth-child(even){
+  margin-top: 3rem;
+}
+
+.login > .card {
+  width: 22rem;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
