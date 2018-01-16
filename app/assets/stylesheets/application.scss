@@ -33,7 +33,7 @@ body {
 body {
   color: #fff;
   text-align: center;
-  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+  text-shadow: none;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -186,14 +186,14 @@ body {
 
 .auth-links a{
   padding: 5px;
-  color: #FFFFFF;
-  background-color:#1a1a1a;
+  color: #2A2A2A;
+  background-color:#FFFFFF;
   font-weight: 800;
   text-decoration: none;
 
   &:hover {
     background-color: #FFFFFF;
-    color: #1a1a1a;
+    border-bottom: #2A2A2A;
   }
 
 }
