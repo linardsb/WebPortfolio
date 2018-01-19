@@ -63,6 +63,8 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
+gem 'cocoon', '~> 1.2', '>= 1.2.11'
+
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
