@@ -65,3 +65,5 @@ gem 'carrierwave-aws', '~> 1.3'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 
 gem 'pry-rails', group: [:development, :test]
+
+gem 'twitter', '~> 6.2'
