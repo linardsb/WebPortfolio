@@ -67,3 +67,5 @@ gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'pry-rails', group: [:development, :test]
 
 gem 'twitter', '~> 6.2'
+
+gem 'redis', '~> 3.3', '>= 3.3.1'
