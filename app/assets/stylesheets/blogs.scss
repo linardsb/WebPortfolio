@@ -17,6 +17,16 @@ body {
   color: #555;
 }
 
+body a{
+  color: #358399;
+  &:hover {
+    color: #c2d9e0;
+    text-decoration: none;
+    background-color: #1d3b57;
+  }
+}
+
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -170,6 +180,7 @@ h6, .h6 {
  */
 
 .blog-footer {
+  margin-top: 20px;
   padding: 2.5rem 0;
   color: #999;
   text-align: center;
@@ -186,14 +197,53 @@ h6, .h6 {
 
  .social_links li {
  font-size: 1.5rem;
+ display: inline;
+ text-align: center;
  }
 
 .fa {
-    color: #993551;
+    color: #358399;
     &:hover {
-    color: #b63f60;
+    color: #5d9bad;
     }
   }
+
+.comment-card > .card {
+  margin-top: 15px;
+}
+
+.avatar {
+  margin: 10px 0 10px 10px;
+  &:img {
+  border-radius: 50px;
+  }
+}
+
+.comment_atribute
+{
+  font-size: .8em;
+  font-style: italic;
+  color: #358399;
+}
+
+.comment_style {
+  font-weight: 800;
+}
+
+.comment_content {
+  margin-left: 10px;
+}
+
+.social_text {
+  text-align: center;
+  & li {
+    padding-right: 10px;
+    & :nth-child(3n) {
+      padding-right:0px;
+    }
+  }
+}
+
 
 
 
