@@ -104,10 +104,16 @@ h6, .h6 {
   margin-bottom: 0;
   font-size: 2rem;
   font-weight: normal;
+  color: #358399;
 }
 .blog-description {
   font-size: 1.1rem;
-  color: #999;
+  color: #888;
+}
+
+.blog-main h2 {
+  color: #358399;
+  text-decoration: none;
 }
 
 @media (min-width: 40em) {
@@ -213,7 +219,7 @@ h6, .h6 {
 }
 
 .avatar {
-  margin: 10px 0 10px 10px;
+  margin: 10px;
   &:img {
   border-radius: 50px;
   }
@@ -224,6 +230,7 @@ h6, .h6 {
   font-size: .8em;
   font-style: italic;
   color: #358399;
+  margin: 10px 0 10px 10px;
 }
 
 .comment_style {
@@ -231,17 +238,23 @@ h6, .h6 {
 }
 
 .comment_content {
-  margin-left: 10px;
+  margin: 10px;
+  border: 1px solid #999;
+  padding: 10px;
 }
 
 .social_text {
   text-align: center;
   & li {
-    padding-right: 10px;
-    & :nth-child(3n) {
+    padding-right: 15px;
+    &:nth-child(3n) {
       padding-right:0px;
     }
   }
+}
+
+.card {
+  margin-bottom: 10px;
 }
 
 
