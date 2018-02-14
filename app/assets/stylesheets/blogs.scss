@@ -20,9 +20,8 @@ body {
 body a{
   color: #358399;
   &:hover {
-    color: #c2d9e0;
+    color: #993550;
     text-decoration: none;
-    background-color: #1d3b57;
   }
 }
 
@@ -119,6 +118,11 @@ h6, .h6 {
 @media (min-width: 40em) {
   .blog-title {
     font-size: 3.5rem;
+  }
+
+  .breadcrumb.row {
+  margin-left: auto;
+  padding-left: auto;
   }
 }
 
@@ -258,6 +262,14 @@ h6, .h6 {
 }
 
 
+
+.breadcrumb.row {
+  border-radius: 0px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #868e96;
+  margin-left: 0px;
+  padding-left: 0px;
+}
 
 
 
