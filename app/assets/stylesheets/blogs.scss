@@ -89,6 +89,11 @@ h6, .h6 {
   border-left: .3rem solid transparent;
 }
 
+.blog-nav {
+  margin-bottom: 40px;
+  padding-bottom:0px;
+}
+
 
 /*
  * Blog name and description
@@ -274,8 +279,9 @@ h6, .h6 {
 box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
 }
 
-.blogcrumb {
+.blogcrumb a{
   font-size: 1.25em;
+  margin: 0 15px 0 15px;
 }
 
 
