@@ -23,7 +23,10 @@ module BlogsHelper
     markdown_to_html.render(text).html_safe
 	end
 
-	def blog_status_color blog
-		'color: red;' if blog.draft?
-	end
+	def blog_color_status blog
+    'border: 2px solid #e50000;
+     border-radius: 2px;
+     padding:0 5px 0 5px;
+     box-sizing: inherit;' if blog.draft?
+  end
 end
