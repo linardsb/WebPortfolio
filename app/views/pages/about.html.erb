@@ -1,15 +1,32 @@
 
 <div class="app-card-container">
 	<div class="">
-		<h1>About me</h1>
 		<hr>
 
 		<div class="row about-panel">
-			<div class="col-md-4">
-				<p class="pf"><%= image_tag "lb_portfolio_img.jpg", width: 150, alt: "Profile image" %></p>
+			<div class="col-md-4 pf">
+				<%= image_tag "lb_portfolio_img.jpg", width: 150, alt: "Profile image" %>
+				<div class="skills">
+					<% @skills.each do |skill| %>
+						<div class="skill">
+							<h4><%= skill.title %></h4>
+							<div class="progress">
+								<div 
+								class="progress-bar progress-bar-striped bg-warning"
+								role="progressbar"
+								aria-valuenow="<%= skill.percent_utilized %>"
+								aria-valuemax="100"
+								style="width: <%= skill.percent_utilized %>%"
+								>
+								</div>
+							</div>
+						</div>
+						
+					<% end %>
+				</div>
 			</div>
 			<div class="col-md-8 about-panel">
-				<p>Hi, I'm Linards Berzins, originally from Latvia. I've been in London since late 2006, and before that I lived in Graz, Austria. This website displays my recent email designs, which I created following latest techniques. I have been undertaking web-related work here and there for the past 3 years, and really got into it seriously over a year ago.</p>
+				<p class="left_text">Hi, I'm Linards Berzins, originally from Latvia. I've been in London since late 2006, and before that I lived in Graz, Austria. This website displays my recent email designs, which I created following latest techniques. I have been undertaking web-related work here and there for the past 3 years, and really got into it seriously over a year ago.</p>
 
 				<p>Moving forward, my aim is to progress in Marketing and media line of work as a HTML Email developer. As a result, after formal studies in Web Technologies, I dedicated to self learn online business, marketing, SEO and social media through these wonderful resources like Teamtreehouse and General Assembly.</p>
 
