@@ -77,3 +77,23 @@ footer p {
 .cover-heading > h1{
   font-family: 'Raleway', sans-serif;
 }
+
+.btn.btn-primary {
+  background-color: #358399;
+  border: none;
+  border-radius: 0px;
+  &:hover {
+    background-color: #44a2be;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.btn.btn-warning {
+  border-radius: 0px;
+  &:hover {
+    border: none;
+    cursor: pointer;
+    }
+}
