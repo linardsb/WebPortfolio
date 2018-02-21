@@ -4,6 +4,17 @@
     <h5>the shortest bio</h5>
     <p>Email developer currently at <a href="https://www.merkleinc.com/europe">Merkle</a>. Looking for a position at budding company. Contact me via social or <a href="mailto:linardsbrzins@gmail.com">email</a></p>
   </div>
+
+    <% if @side_bar_topics %>
+      <div class="sidebar-module social_text">
+        <h4>Blogs topic</h4>
+        <% @side_bar_topics.each do |topic| %>
+          <p><%= link_to topic.title, topic_path(topic) %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+
   <div class="sidebar-module social_text">
     <h4>Social</h4>
     <ol class="list-unstyled social_links">

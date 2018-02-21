@@ -20,6 +20,10 @@ a:hover {
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #fff;
   border: .05rem solid #fff;
+  border-radius: 0px;
+  &:hover {
+    background-color:#e9e9e9;
+  }
 }
 
 
@@ -27,15 +31,41 @@ a:hover {
  * Base structure
  */
 
+
+
 html,
 body {
   height: 100%;
+  font-family: 'Raleway', sans-serif;
 }
 body {
   color: #fff;
   text-align: center;
   text-shadow: none;
 }
+
+/*h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6*/
+
+h1 h2 h3 h4 h5 h6 {
+  font-family: 'Roboto Slab', sans-serif;
+  text-decoration: none;
+  &:hover a{
+    text-decoration: none;
+  }
+}
+
+.masthead-brand h3{
+  font-family: 'Roboto Slab', sans-serif;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+} 
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
@@ -155,6 +185,16 @@ body {
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
+
+}
+
+@media (max-width: 40em) {
+  .pf {
+  margin-bottom: 20px;
+  }
+  .about-panel {
+  padding: 30px !important;
+  }
 }
 
 @media (min-width: 62em) {
@@ -199,7 +239,7 @@ body {
 
 }
 
-.btn, .btn-primary {
+.btn.btn-primary {
   border-radius: 0px;
 }
 
@@ -262,15 +302,21 @@ body {
 }
 
 .pf img{ 
-  margin-top:70px;
+  margin: 0 auto;
+  padding: 0 auto;
   border-radius: 100px;
+}
+
+.pf {
+  text-align: left;
 }
 
 .about-panel {
   color: #000001;
-  padding:20px;
+  padding:70px;
+  text-align: left;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.6);
-
 }
 
 .tech-news {
@@ -289,8 +335,29 @@ body {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+.contact_padding {
+  padding-top: 50px;
+}
 
+.card-block {
+  margin-top: 5px;
+}
 
+.skill {
+   margin-top: 5px;
+}
+
+.btn.btn-primary {
+  background-color: #358399;
+  border: none;
+  border-radius: 0px;
+  &:hover {
+    background-color: #44a2be;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+}
 
 
 
