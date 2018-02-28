@@ -12,13 +12,19 @@
   </head>
 
   <body>
-    <%= render 'shared/portfolio_nav' %>
-    <main role="main">
-      <%= render 'shared/portfolio_masthead' unless logged_in?(:site_admin) %>
-      <%= yield %>
-    </main>
-      <%= render 'shared/portfolio_footer' %>
-      <%= alerts %>
-      <%= source_helper("application") %>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <%= render 'shared/portfolio_nav' %>
+          <main role="main">
+            <%= render 'shared/portfolio_masthead' unless logged_in?(:site_admin) %>
+            <%= yield %>
+          </main>
+            <%= render 'shared/portfolio_footer' %>
+            <%= alerts %>
+            <%= source_helper("application") %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
