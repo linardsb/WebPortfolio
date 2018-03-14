@@ -2,18 +2,8 @@
 <div class="col-sm-3 offset-sm-1 blog-sidebar">
   <div class="sidebar-module sidebar-module-inset">
     <h5>the shortest bio</h5>
-    <p>Email developer currently at <a href="https://www.merkleinc.com/europe">Merkle</a>. Looking for a position at budding company. Contact me via social or <a href="mailto:linardsbrzins@gmail.com">email</a></p>
+    <p>Email developer currently at <a href="https://www.merkleinc.com/europe">Merkle</a>. Looking for freelance work. Contact me via social or <a href="mailto:linardsbrzins@gmail.com">email</a></p>
   </div>
-
-    <% if @side_bar_topics %>
-      <div class="sidebar-module social_text">
-        <h4>Blogs topic</h4>
-        <% @side_bar_topics.each do |topic| %>
-          <p><%= link_to topic.title, topic_path(topic) %></p>
-        <% end %>
-      </div>
-    <% end %>
-
 
   <div class="sidebar-module social_text">
     <h4>Social</h4>
@@ -23,4 +13,15 @@
       <li><a href="https://twitter.com/Linards_Berzins"><%= fa_icon "twitter" %></a></li>
     </ol>
   </div>
+ 
+  <% if @side_bar_topics %>
+      <div class="sidebar-module social_text">
+        <h4>Blog topics</h4>
+        <% @side_bar_topics.each do |topic| %>
+          <p><%= link_to topic.title, topic_path(topic) %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+
 </div>
