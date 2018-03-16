@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@portfolio_item) do |f| %>
   <% if @portfolio_item.errors.any? %>
     <% @portfolio_item.errors.full_messages.each do |error| %>
@@ -53,3 +54,4 @@
     </div>
   </div>
 <% end %>
+</div>
