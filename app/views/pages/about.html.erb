@@ -1,10 +1,10 @@
 
 <div class="container">
-		<hr>
+
 
 		<div class="row about-panel">
 			<div class="col-md-4 pf">
-				<%= image_tag "lb_portfolio_img.jpg", width: 150, alt: "Profile image" %>
+				<%= image_tag "lb_portfolio_img.jpg", width: 150, alt: "Profile image", class: 'profile_image'%>
 				<div class="skills">
 					<% @skills.each do |skill| %>
 						<div class="skill">
@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="col-md-8 about-panel">
-				<p class="left_text">Hi, I'm Linards. I've been living in London since late 2006, and before that I lived in Graz, Austria. Recent moving to East Grinstead was much welcomed by me and my family (still love London as well).</p>
+				<p class="left_text">Hi, I'm Linards. I've been living in London since late 2006, and before that I lived in Graz, Austria. Recent moving to East Grinstead was much welcomed by my family (still love London as well).</p>
 
 				<p>This website displays my recent email and other designs, which I created. I have been undertaking web-related work here and there for the past 2 years, and really got into it seriously over a year ago.</p>
 
@@ -58,28 +58,28 @@
 				</p>
 				<p>
 					<div class="collapse" id="jobHistory">
-						<div class="card card-block">
+						<div class="card card-block job_history">
 							 Merkle - Email Developer - 2016 - Current
 						</div>
-						<div class="card card-block">
+						<div class="card card-block job_history">
 							Rocketseed Ltd - Email Signature support - Feb 2016 – Aug 2016
 						</div>
-						<div class="card card-block">
+						<div class="card card-block job_history">
 							Brightcove - Cloud video Tech support - July 2014 – Feb 2016
 						</div>
 					</div>
 
 					<div class="collapse" id="education">
-						<div class="card card-block">
+						<div class="card card-block education">
 							Web Technologies - Birkbeck University - 2011-2013
 						</div>
-						<div class="card card-block">
+						<div class="card card-block education">
 							JavaScript / NodeJS - Udemy Online study platform 2015 - ongoing
 						</div>
-						<div class="card card-block">
+						<div class="card card-block education">
 							Ruby on Rails - Udemy Online study platform 2015 - ongoing
 						</div>
-						<div class="card card-block">
+						<div class="card card-block education">
 							Wordpress (themes, plugins) - Udemy Online study platform 2015 - ongoing
 						</div>
 					</div>

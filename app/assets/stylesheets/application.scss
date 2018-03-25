@@ -198,6 +198,7 @@ h1 h2 h3 h4 h5 h6 {
   .pf {
   margin-bottom: 20px;
   }
+
   .about-panel {
   padding: 30px !important;
   }
@@ -307,9 +308,7 @@ h1 h2 h3 h4 h5 h6 {
   color:#FFFFFF;
 }
 
-.pf img{ 
-  margin: 0 auto;
-  padding: 0 auto;
+.pf img { 
   border-radius: 100px;
 }
 
@@ -383,6 +382,16 @@ h1 h2 h3 h4 h5 h6 {
 
 button.btn.btn-primary {
   margin-top: 10px;
+}
+
+.job_history{
+  border-radius: 0px;
+  background-color: #F1E0DD;
+}
+
+.education {
+  border-radius: 0px;
+  background-color: #DDF1EA;
 }
 
 
