@@ -318,6 +318,15 @@ box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
   padding: 10px;
   border-radius: 0px;
   text-align: center;
+  &:hover {
+    background-color: #44a2be;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    &:hover a {
+      color: #FFFFFF;
+    }
+  }
 }
 
 
