@@ -304,7 +304,7 @@ box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
 
 .blog_body {
 background-color: #FFFFFF;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: none;
  border-radius: 0px;
   padding-left:1rem;
   margin: 0 0 20px 0;
@@ -328,6 +328,20 @@ box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
     }
   }
 }
+
+.blog_body_copy{
+  border-top: 1px solid rgba(212, 212, 212, 0.75);
+  margin-bottom: 3em;
+}
+
+.card {
+  border-radius: 0px;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
 
 
 
