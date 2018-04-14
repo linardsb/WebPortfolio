@@ -120,5 +120,16 @@ footer p {
 
 .btn-secondary {
   border-radius: 0px;
+  background-color: #358399;
   border: none;
+  &:hover {
+    background-color: #44a2be;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+h1.jumbotron-heading {
+  color:#868e96 !important;
 }
