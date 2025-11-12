@@ -17,8 +17,9 @@ require "dotenv-rails"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# Load compatibility fixes for Rails 5.2 + Ruby 3.3 + pg >= 1.1
+# Load compatibility fixes for Rails 5.2 + Ruby 3.1+
 require_relative '../lib/activerecord_pg_compat'
+require_relative '../lib/action_dispatch_static_compat'
 
 module WebPortfolio
   class Application < Rails::Application
