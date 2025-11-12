@@ -9,4 +9,6 @@ bundle install
 SECRET_KEY_BASE=dummy bundle exec rake assets:precompile
 bundle exec rake assets:clean
 
-bundle exec rake db:migrate
+# Try to run migrations, but don't fail if database is unreachable during build
+# Migrations will run on service start via Procfile if they fail here
+bundle exec rake db:migrate || echo "Database migrations skipped (will run on service start)"
