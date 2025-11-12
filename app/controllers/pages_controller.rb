@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   	@skills = Skill.all rescue []
 
   	respond_to do |format|
-      format.html { render inline: "<h1>WebPortfolio is Live!</h1><p>If you see this, the app is working. Views will be fixed next.</p>".html_safe }
+      format.html
     end
   end
 
