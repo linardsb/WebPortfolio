@@ -2,6 +2,9 @@
 # exit on error
 set -o errexit
 
+# Ensure bundler is installed
+gem install bundler -v 2.3.26 --no-document
+
 bundle install
 
 # Use a dummy secret key for asset precompilation
