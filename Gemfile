@@ -9,6 +9,9 @@ gem 'rails', '~> 6.0.6'
 
 gem 'pg', '>= 1.0', '< 2.0'
 
+# Pin zeitwerk to 2.6.x for Ruby 3.1.4 compatibility
+gem 'zeitwerk', '~> 2.6.0'
+
 gem 'puma', '~> 5.6'
 
 gem 'sass-rails', '~> 5.0'
@@ -79,4 +82,4 @@ gem 'coderay', '~> 1.1', '>= 1.1.1'
 
 gem 'mutex_m'
 
-ruby "3.2.6"
+ruby "3.1.4"
