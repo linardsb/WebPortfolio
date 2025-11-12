@@ -1,5 +1,8 @@
 require_relative 'boot'
 
+# Fix for Rails 6.0 + Ruby 3.1 Logger compatibility
+require 'logger'
+
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
