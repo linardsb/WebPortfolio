@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   	@skills = Skill.all rescue []
 
   	respond_to do |format|
-      format.html
+      format.html { render template: 'pages/home' }
     end
   end
 
@@ -12,13 +12,13 @@ class PagesController < ApplicationController
     @skills = Skill.all rescue []
 
     respond_to do |format|
-      format.html
+      format.html { render template: 'pages/about' }
     end
   end
 
   def contact
     respond_to do |format|
-      format.html
+      format.html { render template: 'pages/contact' }
     end
   end
 
@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   	@tweets = SocialTool.twitter_search rescue []
 
   	respond_to do |format|
-      format.html
+      format.html { render template: 'pages/tech_news' }
     end
   end
 
