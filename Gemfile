@@ -5,13 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.2.8'
 
-gem 'pg', '~> 0.18'
+gem 'pg', '>= 1.0', '< 2.0'
 
-gem 'puma', '~> 3.10.0'
+gem 'puma', '~> 5.6'
 
 gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails', '>= 2.1.0'
 
 gem 'uglifier', '>= 1.3.0'
 
@@ -25,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
 
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: [:mri, :windows]
 end
 
 group :development do
@@ -38,11 +39,11 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:windows, :jruby]
 gem 'friendly_id', '~> 5.1.0'
-gem 'devise', '~> 4.3'
+gem 'devise', '~> 4.9'
 
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'bootstrap', '~> 4.6'
 
 gem 'popper_js'
 
@@ -58,7 +59,7 @@ gem 'gritter', '~> 1.2'
 
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
-gem 'carrierwave', '~> 1.2', '>= 1.2.2'
+gem 'carrierwave', '~> 2.2'
 
 gem 'mini_magick', '~> 4.8'
 
@@ -70,10 +71,12 @@ gem 'pry-rails', group: [:development, :test]
 
 gem 'twitter', '~> 6.2'
 
-gem 'redis', '~> 3.3', '>= 3.3.3'
+gem 'redis', '~> 4.0'
 
 gem 'redcarpet', '~> 3.4'
 
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 
-ruby "2.4.0"
+gem 'mutex_m'
+
+ruby "3.3.6"
