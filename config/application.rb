@@ -17,14 +17,10 @@ require "dotenv-rails"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# Load compatibility fixes for Rails 5.2 + Ruby 3.1+
-require_relative '../lib/activerecord_pg_compat'
-require_relative '../lib/action_dispatch_static_compat'
-
 module WebPortfolio
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    config.load_defaults 6.0
     config.generators.system_tests = nil
     config.eager_load_paths << "#{Rails.root}/lib"
     # Rails will use ENV["SECRET_KEY_BASE"] automatically
