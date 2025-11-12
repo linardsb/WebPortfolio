@@ -79,4 +79,4 @@ gem 'coderay', '~> 1.1', '>= 1.1.1'
 
 gem 'mutex_m'
 
-ruby "3.1.4"
+ruby "3.2.6"
