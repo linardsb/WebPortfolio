@@ -4,9 +4,7 @@
 
 module ActionDispatch
   class Static
-    alias_method :original_initialize, :initialize
-
-    def initialize(app, path, index: 'index', headers: {})
+    def initialize(app, path, *args, index: 'index', headers: {}, **kwargs)
       @app = app
       @file_handler = FileHandler.new(path, index: index, headers: headers)
     end
