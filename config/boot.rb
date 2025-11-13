@@ -15,11 +15,11 @@ if database_url && !database_url.empty?
     puts "Database host: #{uri.host}"
 
     if uri.host && uri.host !~ /^\d+\.\d+\.\d+\.\d+$/ # Not already an IP
-      # Force IPv4 resolution
-      resolver = Resolv::DNS.new
+      # Force IPv4 resolution using Google's public DNS servers
+      resolver = Resolv::DNS.new(nameserver: ['8.8.8.8', '8.8.4.4'])
       ipv4_records = resolver.getresources(uri.host, Resolv::DNS::Resource::IN::A)
 
-      puts "Found #{ipv4_records.length} IPv4 records"
+      puts "Found #{ipv4_records.length} IPv4 records using Google DNS"
 
       if ipv4_records.any?
         ipv4_address = ipv4_records.first.address.to_s
