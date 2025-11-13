@@ -3,12 +3,13 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)
 require 'bundler/setup' # Set up gems listed in the Gemfile.
 
 # Force IPv4 for database connections on Render
-if ENV['RAILS_ENV'] == 'production' && ENV['DATABASE_URL'].present?
+database_url = ENV['DATABASE_URL']
+if ENV['RAILS_ENV'] == 'production' && database_url && !database_url.empty?
   require 'uri'
   require 'resolv'
 
   begin
-    uri = URI.parse(ENV['DATABASE_URL'])
+    uri = URI.parse(database_url)
     if uri.host && uri.host !~ /^\d+\.\d+\.\d+\.\d+$/ # Not already an IP
       # Force IPv4 resolution
       resolver = Resolv::DNS.new
