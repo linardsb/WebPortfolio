@@ -6,7 +6,7 @@ if Rails.env.production?
     ActiveRecord::Migration.check_pending!
   rescue ActiveRecord::PendingMigrationError
     Rails.logger.info "Running pending migrations..."
-    ActiveRecord::MigrationContext.new(Rails.root.join('db', 'migrate').to_s).migrate
+    ActiveRecord::Tasks::DatabaseTasks.migrate
     Rails.logger.info "Migrations complete!"
   rescue StandardError => e
     Rails.logger.warn "Migration check failed: #{e.message}"
