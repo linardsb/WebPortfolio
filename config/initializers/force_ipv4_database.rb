@@ -22,47 +22,71 @@ if ENV['DATABASE_URL'].present?
     if uri.host && uri.host !~ /^\d+\.\d+\.\d+\.\d+$/ # Not already an IP
       puts "Using DNS-over-HTTPS to resolve #{uri.host}..."
 
-      # Use Cloudflare's DNS-over-HTTPS service
-      doh_url = "https://1.1.1.1/dns-query?name=#{uri.host}&type=A"
-      doh_uri = URI(doh_url)
+      # Try multiple DoH providers
+      doh_providers = [
+        { name: 'Cloudflare', url: "https://1.1.1.1/dns-query?name=#{uri.host}&type=A" },
+        { name: 'Google', url: "https://dns.google/resolve?name=#{uri.host}&type=A" }
+      ]
 
-      http = Net::HTTP.new(doh_uri.host, doh_uri.port)
-      http.use_ssl = true
-      http.open_timeout = 5
-      http.read_timeout = 5
+      success = false
 
-      request = Net::HTTP::Get.new(doh_uri)
-      request['Accept'] = 'application/dns-json'
+      doh_providers.each do |provider|
+        next if success
 
-      response = http.request(request)
+        puts "\nTrying #{provider[:name]} DoH service..."
 
-      if response.code == '200'
-        data = JSON.parse(response.body)
+        begin
+          doh_uri = URI(provider[:url])
 
-        if data['Answer'] && data['Answer'].any?
-          ipv4_addresses = data['Answer']
-            .select { |answer| answer['type'] == 1 } # Type 1 = A record (IPv4)
-            .map { |answer| answer['data'] }
+          http = Net::HTTP.new(doh_uri.host, doh_uri.port)
+          http.use_ssl = true
+          http.open_timeout = 5
+          http.read_timeout = 5
 
-          puts "Found #{ipv4_addresses.length} IPv4 address(es): #{ipv4_addresses.join(', ')}"
+          request = Net::HTTP::Get.new(doh_uri)
+          request['Accept'] = 'application/dns-json'
 
-          if ipv4_addresses.any?
-            ipv4_address = ipv4_addresses.first
-            puts "Selected: #{ipv4_address}"
+          response = http.request(request)
+          puts "Response code: #{response.code}"
 
-            uri.host = ipv4_address
-            ENV['DATABASE_URL'] = uri.to_s
+          if response.code == '200'
+            data = JSON.parse(response.body)
+            puts "Response data keys: #{data.keys.inspect}"
 
-            puts "✓ SUCCESS: Replaced #{original_host} with #{ipv4_address}"
+            if data['Answer'] && data['Answer'].any?
+              puts "Answer section found with #{data['Answer'].length} record(s)"
+
+              ipv4_addresses = data['Answer']
+                .select { |answer| answer['type'] == 1 } # Type 1 = A record (IPv4)
+                .map { |answer| answer['data'] }
+
+              puts "IPv4 addresses: #{ipv4_addresses.inspect}"
+
+              if ipv4_addresses.any?
+                ipv4_address = ipv4_addresses.first
+                puts "Selected: #{ipv4_address}"
+
+                uri.host = ipv4_address
+                ENV['DATABASE_URL'] = uri.to_s
+
+                puts "✓ SUCCESS: Replaced #{original_host} with #{ipv4_address}"
+                success = true
+              else
+                puts "✗ No IPv4 addresses in DNS response"
+              end
+            else
+              puts "✗ No DNS answers in response"
+              puts "Full response: #{response.body[0..500]}" # First 500 chars
+            end
           else
-            puts "✗ ERROR: No IPv4 addresses in DNS response"
+            puts "✗ Request failed with status #{response.code}"
           end
-        else
-          puts "✗ ERROR: No DNS answers in response"
+        rescue => e
+          puts "✗ #{provider[:name]} failed: #{e.class} - #{e.message}"
         end
-      else
-        puts "✗ ERROR: DNS-over-HTTPS request failed with status #{response.code}"
       end
+
+      puts "\n✗ ERROR: All DoH providers failed" unless success
     else
       puts "Already an IP address: #{uri.host}"
     end
