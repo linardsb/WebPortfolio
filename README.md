@@ -1,10 +1,9 @@
 # Linards Berzins WebPortfolio application 
 
-> This is Rails 5 application, that allows users to upload their own portfolios. 
+>  Rails 56 
 
 ### Features
 
-- Real time chat 
 - Blog 
 - Portfolio
 - Drag and drop interface
