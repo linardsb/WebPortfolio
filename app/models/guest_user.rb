@@ -23,4 +23,8 @@ class GuestUser
 	def has_roles?(*roles)
 		false
 	end
+
+	def roles
+		[]
+	end
 end
