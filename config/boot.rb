@@ -4,25 +4,36 @@ require 'bundler/setup' # Set up gems listed in the Gemfile.
 
 # Force IPv4 for database connections on Render
 database_url = ENV['DATABASE_URL']
-if ENV['RAILS_ENV'] == 'production' && database_url && !database_url.empty?
+if database_url && !database_url.empty?
   require 'uri'
   require 'resolv'
 
+  puts "Attempting to force IPv4 for database connection..."
+
   begin
     uri = URI.parse(database_url)
+    puts "Database host: #{uri.host}"
+
     if uri.host && uri.host !~ /^\d+\.\d+\.\d+\.\d+$/ # Not already an IP
       # Force IPv4 resolution
       resolver = Resolv::DNS.new
       ipv4_records = resolver.getresources(uri.host, Resolv::DNS::Resource::IN::A)
 
+      puts "Found #{ipv4_records.length} IPv4 records"
+
       if ipv4_records.any?
         ipv4_address = ipv4_records.first.address.to_s
         uri.host = ipv4_address
         ENV['DATABASE_URL'] = uri.to_s
-        puts "Forced IPv4 database connection: #{ipv4_address}"
+        puts "✓ Forced IPv4 database connection: #{ipv4_address}"
+      else
+        puts "Warning: No IPv4 records found for #{uri.host}"
       end
+    else
+      puts "Database host is already an IP address: #{uri.host}"
     end
   rescue => e
-    warn "Could not force IPv4 for database: #{e.message}"
+    warn "✗ Could not force IPv4 for database: #{e.message}"
+    warn e.backtrace.first(3).join("\n")
   end
 end

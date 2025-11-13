@@ -18,4 +18,9 @@ class GuestUser
 	def new_record?
 		true
 	end
+
+	# Petergate authorization compatibility - guest users have no roles
+	def has_roles?(*roles)
+		false
+	end
 end
