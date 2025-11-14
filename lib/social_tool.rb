@@ -24,27 +24,27 @@ module SocialTool
 		[
 			{
 				text: "OpenAI: Introducing GPT-4 Turbo with enhanced capabilities for AI development. Learn more about the latest features. #AI #MachineLearning",
-				url: "https://x.com/OpenAI/status/1721996941842293174"
+				url: "https://x.com/OpenAI/status/1859296125947347164"
 			},
 			{
 				text: "AnthropicAI: Constitutional AI is reshaping how we build safer AI systems. Read our latest research on alignment. #AI #AIResearch",
-				url: "https://x.com/AnthropicAI/status/1767548828560109674"
+				url: "https://x.com/AnthropicAI/status/1937921801000219041"
 			},
 			{
 				text: "GoogleAI: Google DeepMind announces breakthrough in protein folding predictions using AI. #AI #Science",
-				url: "https://x.com/GoogleDeepMind/status/1856328551887089814"
+				url: "https://x.com/GoogleDeepMind/status/1831710991475777823"
 			},
 			{
 				text: "MIT_CSAIL: New AI model achieves state-of-the-art results in natural language understanding. Check out the paper. #AI #NLP",
-				url: "https://x.com/MIT_CSAIL/status/1856380044375982352"
+				url: "https://x.com/MIT_CSAIL/status/1930985598283612184"
 			},
 			{
 				text: "Stanford_AI: Exploring the future of human-AI collaboration in our latest AI Index Report. #AI #Technology",
-				url: "https://x.com/StanfordAILab/status/1778115330002039285"
+				url: "https://x.com/StanfordAILab/status/1818669016325800216"
 			},
 			{
 				text: "HuggingFace: New transformer models now available on our platform. Build amazing AI applications today! #AI #OpenSource",
-				url: "https://x.com/huggingface/status/1856688971878256774"
+				url: "https://x.com/huggingface"
 			}
 		]
 	end
