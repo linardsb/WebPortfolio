@@ -12,7 +12,7 @@ module SocialTool
   		config.access_token_secret = ENV.fetch("TWITTER_ACCESS_SECRET")
 		end
 
-		client.search("#AI", result_type: 'recent').take(6).collect do |tweet|
+		client.search("#vibecoding OR #PromptEngineering OR #AI", result_type: 'recent').take(6).collect do |tweet|
 			{
 				text: "#{tweet.user.screen_name}: #{tweet.text}",
 				url: tweet.url.to_s
@@ -23,28 +23,28 @@ module SocialTool
 	def self.fallback_tweets
 		[
 			{
-				text: "OpenAI: Introducing GPT-4 Turbo with enhanced capabilities for AI development. Learn more about the latest features. #AI #MachineLearning",
+				text: "karpathy: There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists. It's possible because the LLMs are getting too good. #vibecoding",
+				url: "https://x.com/karpathy/status/1886192184808149383"
+			},
+			{
+				text: "AnthropicAI: You can now generate production-ready prompts in the Anthropic Console. Describe what you want to achieve, and Claude will use prompt engineering techniques like chain-of-thought reasoning. #PromptEngineering",
+				url: "https://x.com/AnthropicAI/status/1788958483565732213"
+			},
+			{
+				text: "MatthewBerman: Vibe coding will change the world. Don't let the fun name fool you. Before AI existed, semi-technical folks would download code templates, copy/paste from github/stackoverflow. #vibecoding",
+				url: "https://x.com/MatthewBerman/status/1904943879381782787"
+			},
+			{
+				text: "OpenAI: Introducing GPT-4o with enhanced capabilities for AI development. The model's creative writing ability has leveled up–more natural, engaging, and tailored writing. #AI #MachineLearning",
 				url: "https://x.com/OpenAI/status/1859296125947347164"
 			},
 			{
-				text: "AnthropicAI: Constitutional AI is reshaping how we build safer AI systems. Read our latest research on alignment. #AI #AIResearch",
-				url: "https://x.com/AnthropicAI/status/1937921801000219041"
-			},
-			{
-				text: "GoogleAI: Google DeepMind announces breakthrough in protein folding predictions using AI. #AI #Science",
+				text: "GoogleDeepMind: We're presenting AlphaProteo: an AI system for designing novel proteins that bind more successfully to target molecules. It could help advance drug design and more. #AI #Science",
 				url: "https://x.com/GoogleDeepMind/status/1831710991475777823"
 			},
 			{
-				text: "MIT_CSAIL: New AI model achieves state-of-the-art results in natural language understanding. Check out the paper. #AI #NLP",
-				url: "https://x.com/MIT_CSAIL/status/1930985598283612184"
-			},
-			{
-				text: "Stanford_AI: Exploring the future of human-AI collaboration in our latest AI Index Report. #AI #Technology",
-				url: "https://x.com/StanfordAILab/status/1818669016325800216"
-			},
-			{
-				text: "HuggingFace: New transformer models now available on our platform. Build amazing AI applications today! #AI #OpenSource",
-				url: "https://x.com/huggingface"
+				text: "zswitten: IMO you only need to know three prompt engineering techniques: 1. Show the model examples 2. Let it think before answering 3. Break down big tasks into small ones. #PromptEngineering",
+				url: "https://x.com/zswitten/status/1752700765380997591"
 			}
 		]
 	end
