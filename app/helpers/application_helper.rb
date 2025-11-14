@@ -40,7 +40,7 @@ module ApplicationHelper
       },
       {
         url: tech_news_path,
-        title: 'UX'
+        title: 'AI'
       },
     ]
   end
