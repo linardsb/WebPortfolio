@@ -23,7 +23,13 @@ class PagesController < ApplicationController
   end
 
   def tech_news
-  	@tweets = SocialTool.twitter_search rescue []
+  	begin
+      @tweets = SocialTool.twitter_search
+    rescue => e
+      Rails.logger.error "Twitter API Error: #{e.message}"
+      @tweets = []
+      @error_message = "Unable to fetch tweets. #{e.message}"
+    end
 
   	respond_to do |format|
       format.html { render template: 'pages/tech_news' }
