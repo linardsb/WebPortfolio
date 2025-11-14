@@ -330,14 +330,27 @@ h1 h2 h3 h4 h5 h6 {
   padding: 20px;
 }
 
-.tech-news a {
+.tech-news .card a {
   color: #f000ea;
 }
 
+.tech-news > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tech-news > a > .card,
 .tech-news > .card {
   padding: 30px;
   border-radius: 0px;
   background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.tech-news > a > .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .contact_padding {
