@@ -1,30 +1,40 @@
 class AddLinardsAdminUser < ActiveRecord::Migration[5.1]
   def up
-    # Check if user already exists
-    user = User.find_by(email: 'linardsberzins@gmail.com')
+    # Use raw SQL to avoid loading models during migration
+    email = 'linardsberzins@gmail.com'
 
-    if user
+    # Check if user already exists
+    result = execute("SELECT id FROM users WHERE email = '#{email}' LIMIT 1")
+
+    if result.count > 0
       # Update existing user to admin
-      user.update!(roles: 'site_admin')
-      puts "✓ Updated linardsberzins@gmail.com to site_admin"
+      execute("UPDATE users SET roles = 'site_admin' WHERE email = '#{email}'")
+      puts "✓ Updated #{email} to site_admin"
     else
-      # Create new admin user
+      # Create new admin user with encrypted password
+      require 'bcrypt'
       temp_password = SecureRandom.hex(16)
-      User.create!(
-        email: 'linardsberzins@gmail.com',
-        password: temp_password,
-        password_confirmation: temp_password,
-        name: 'Linards Berzins',
-        roles: 'site_admin'
-      )
-      puts "✓ Created admin user: linardsberzins@gmail.com"
+      encrypted_password = BCrypt::Password.create(temp_password)
+
+      execute(<<-SQL)
+        INSERT INTO users (email, encrypted_password, name, roles, created_at, updated_at)
+        VALUES (
+          '#{email}',
+          '#{encrypted_password}',
+          'Linards Berzins',
+          'site_admin',
+          NOW(),
+          NOW()
+        )
+      SQL
+
+      puts "✓ Created admin user: #{email}"
       puts "✓ Temporary password: #{temp_password}"
-      puts "⚠ Check deployment logs for password, then change it immediately after login"
+      puts "⚠ IMPORTANT: Save this password and change it after first login!"
     end
   end
 
   def down
-    user = User.find_by(email: 'linardsberzins@gmail.com')
-    user&.update(roles: nil)
+    execute("UPDATE users SET roles = NULL WHERE email = 'linardsberzins@gmail.com'")
   end
 end
