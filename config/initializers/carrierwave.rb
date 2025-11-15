@@ -1,6 +1,9 @@
 CarrierWave.configure do |config|
-  # Only configure AWS storage if environment variables are present (production)
-  if ENV['S3_BUCKET_NAME'].present?
+  # Only configure AWS storage if ALL required environment variables are present
+  if ENV['S3_BUCKET_NAME'].present? &&
+     ENV['AWS_ACCESS_KEY_ID'].present? &&
+     ENV['AWS_SECRET_ACCESS_KEY'].present? &&
+     ENV['AWS_REGION'].present?
     config.storage    = :aws
     config.aws_bucket = ENV.fetch('S3_BUCKET_NAME')
     config.aws_acl    = 'public-read'
@@ -13,10 +16,10 @@ CarrierWave.configure do |config|
     config.aws_credentials = {
       access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-      region:            ENV.fetch('AWS_REGION') # Required
+      region:            ENV.fetch('AWS_REGION')
     }
   else
-    # Use local file storage for development/test
+    # Use local file storage
     config.storage = :file
     config.enable_processing = false if Rails.env.test?
   end
