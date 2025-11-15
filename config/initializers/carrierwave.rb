@@ -1,9 +1,15 @@
 CarrierWave.configure do |config|
-  # Only configure AWS storage if ALL required environment variables are present
-  if ENV['S3_BUCKET_NAME'].present? &&
-     ENV['AWS_ACCESS_KEY_ID'].present? &&
-     ENV['AWS_SECRET_ACCESS_KEY'].present? &&
-     ENV['AWS_REGION'].present?
+  # Priority: Cloudinary > AWS > Local File Storage
+
+  # Option 1: Cloudinary (recommended for free tier)
+  if ENV['CLOUDINARY_URL'].present?
+    config.storage = :cloudinary
+
+  # Option 2: AWS S3 (if all AWS credentials are present)
+  elsif ENV['S3_BUCKET_NAME'].present? &&
+        ENV['AWS_ACCESS_KEY_ID'].present? &&
+        ENV['AWS_SECRET_ACCESS_KEY'].present? &&
+        ENV['AWS_REGION'].present?
     config.storage    = :aws
     config.aws_bucket = ENV.fetch('S3_BUCKET_NAME')
     config.aws_acl    = 'public-read'
@@ -18,8 +24,9 @@ CarrierWave.configure do |config|
       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
       region:            ENV.fetch('AWS_REGION')
     }
+
+  # Option 3: Local file storage (fallback, ephemeral on free hosting)
   else
-    # Use local file storage
     config.storage = :file
     config.enable_processing = false if Rails.env.test?
   end
