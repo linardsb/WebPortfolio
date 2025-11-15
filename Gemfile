@@ -68,7 +68,7 @@ gem 'mini_magick', '~> 4.8'
 
 gem 'carrierwave-aws', '~> 1.3'
 
-gem 'cloudinary', '~> 1.25'
+gem 'cloudinary'
 
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 

@@ -1,15 +1,15 @@
 CarrierWave.configure do |config|
   # Priority: Cloudinary > AWS > Local File Storage
 
-  # Option 1: Cloudinary (recommended for free tier)
-  if ENV['CLOUDINARY_URL'].present?
-    config.storage = :cloudinary
+  # Option 1: Cloudinary is configured via uploader include (PortfolioUploader)
+  # No config.storage needed - Cloudinary gem handles it automatically
 
-  # Option 2: AWS S3 (if all AWS credentials are present)
-  elsif ENV['S3_BUCKET_NAME'].present? &&
-        ENV['AWS_ACCESS_KEY_ID'].present? &&
-        ENV['AWS_SECRET_ACCESS_KEY'].present? &&
-        ENV['AWS_REGION'].present?
+  # Option 2: AWS S3 (if all AWS credentials are present and Cloudinary not configured)
+  if ENV['CLOUDINARY_URL'].blank? &&
+     ENV['S3_BUCKET_NAME'].present? &&
+     ENV['AWS_ACCESS_KEY_ID'].present? &&
+     ENV['AWS_SECRET_ACCESS_KEY'].present? &&
+     ENV['AWS_REGION'].present?
     config.storage    = :aws
     config.aws_bucket = ENV.fetch('S3_BUCKET_NAME')
     config.aws_acl    = 'public-read'
@@ -26,7 +26,7 @@ CarrierWave.configure do |config|
     }
 
   # Option 3: Local file storage (fallback, ephemeral on free hosting)
-  else
+  elsif ENV['CLOUDINARY_URL'].blank?
     config.storage = :file
     config.enable_processing = false if Rails.env.test?
   end
