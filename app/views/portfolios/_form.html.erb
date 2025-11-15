@@ -1,5 +1,5 @@
 
-<%= form_for(@portfolio_item) do |f| %>
+<%= form_for(@portfolio_item, html: { multipart: true }) do |f| %>
   <% if @portfolio_item.errors.any? %>
     <% @portfolio_item.errors.full_messages.each do |error| %>
       <%= alert_generator error %>
