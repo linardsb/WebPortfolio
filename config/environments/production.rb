@@ -90,9 +90,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_cable.allowed_request_origins = [
-    'https://webportfolio-lb.fly.dev',
-    /https:\/\/webportfolio-lb.*\.fly\.dev/,
-    'https://webportfolio-0qq0.onrender.com'  # Keep Render for now during migration
+    'https://webportfolio-0qq0.onrender.com',
+    'http://webportfolio-0qq0.onrender.com'
   ]
-  config.action_cable.url = "wss://webportfolio-lb.fly.dev/cable"
+  config.action_cable.url = "wss://webportfolio-0qq0.onrender.com/cable"
 end
