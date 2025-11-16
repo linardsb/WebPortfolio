@@ -116,9 +116,9 @@ h6 .h6{
     font-size: 3.5rem;
   }
 
-  .breadcrumb.row {
-  margin-left: auto;
-  padding-left: auto;
+  .breadcrumb {
+    margin-left: auto;
+    padding-left: auto;
   }
 }
 
@@ -272,15 +272,15 @@ h6 .h6{
 
 
 
-.breadcrumb.row {
+.breadcrumb {
   background-color: #FFFFFF;
   border-bottom: 1px solid #ffffff;
- border-radius: 0px;
-  padding-left:1rem;
+  border-radius: 0px;
+  padding-left: 1rem;
   margin: 0 0 20px 0;
--webkit-box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
-box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
+  box-shadow: 0px -2px 6px -4px rgba(0,0,0,0.75);
 }
 
 .blogcrumb a{
