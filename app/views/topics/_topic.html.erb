@@ -1,3 +1,9 @@
 <div class='card col-md-5'>
 	<%= link_to topic.title, topic_path(topic) %>
+	<% if logged_in?(:site_admin) %>
+		<div class="mt-2">
+			<%= link_to 'Edit', edit_topic_path(topic), class: 'btn btn-sm btn-warning' %>
+			<%= link_to 'Delete', topic_path(topic), method: :delete, data: { confirm: 'Are you sure? This will not delete associated blogs.' }, class: 'btn btn-sm btn-danger' %>
+		</div>
+	<% end %>
 </div>

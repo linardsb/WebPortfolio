@@ -1,9 +1,17 @@
 <div class="col-sm-8 blog-main">
 
-	<h1><%= @topic.title %></h1>
+	<div class="d-flex justify-content-between align-items-center mb-3">
+		<h1><%= @topic.title %></h1>
+		<% if logged_in?(:site_admin) %>
+			<div>
+				<%= link_to 'Edit Topic', edit_topic_path(@topic), class: 'btn btn-warning' %>
+				<%= link_to 'Delete Topic', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure? This will not delete associated blogs.' }, class: 'btn btn-danger' %>
+			</div>
+		<% end %>
+	</div>
 
 	<%= paginate @blogs %>
-	
+
   <%= render @blogs %>
 
   <%= paginate @blogs %>
