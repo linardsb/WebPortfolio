@@ -216,6 +216,19 @@ h6 .h6{
  * Custom styles
  */
 
+.blog-nav-link {
+  color: #868e96 !important;
+  text-decoration: none;
+
+  &:hover {
+    color: #6c757d !important;
+  }
+
+  &.active {
+    color: #495057 !important;
+  }
+}
+
  .social_links li {
  font-size: 1.5rem;
  display: inline;
