@@ -1,12 +1,12 @@
 module ApplicationHelper
 	def login_helper style = ''
+		# Only show logout link when admin is logged in
+		# No public login/signup links - admin accesses via direct URL (/users/sign_in)
 		if current_user.is_a?(GuestUser)
-			(link_to "Sign up", new_user_registration_path, class: style) +
-    	 " ".html_safe +
-    	(link_to "Login", new_user_session_path, class: style)
-     else 
+			"".html_safe  # Return nothing for public users
+     else
     	 link_to "Logout", destroy_user_session_path, method: :delete, class: style
-     end 
+     end
 	end 
 
   def source_helper(styles)
