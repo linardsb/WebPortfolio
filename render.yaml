@@ -22,6 +22,17 @@ services:
         value: enabled
       - key: RAILS_SERVE_STATIC_FILES
         value: enabled
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: webportfolio-redis
+          property: connectionString
+
+  - type: redis
+    name: webportfolio-redis
+    plan: free
+    maxmemoryPolicy: allkeys-lru
+    ipAllowList: []
 
 # Using external database (Supabase/Neon) - no expiration!
 # Add DATABASE_URL manually in Render dashboard

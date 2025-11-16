@@ -6,7 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV["REDISCLOUD_URL"] %>
+  url: <%= ENV.fetch("REDIS_URL") { ENV["REDISCLOUD_URL"] } %>
   channel_prefix: WebPortfolio_production
 
 #redis://localhost:6379/1
