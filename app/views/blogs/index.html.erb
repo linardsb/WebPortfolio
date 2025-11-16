@@ -1,5 +1,11 @@
 <div class="col-sm-8 blog-main">
 
+	<% if logged_in?(:site_admin) %>
+		<div class="mb-4">
+			<%= link_to "New Blog Post", new_blog_path, class: "btn btn-primary" %>
+		</div>
+	<% end %>
+
 	<%= paginate @blogs %>
 
   <%= render @blogs %>

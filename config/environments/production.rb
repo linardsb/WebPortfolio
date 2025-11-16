@@ -62,9 +62,21 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "WebPortfolio_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  # Action Mailer configuration for password reset emails
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'webportfolio-0qq0.onrender.com', protocol: 'https' }
+
+  # Gmail SMTP configuration
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_APP_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -90,9 +102,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_cable.allowed_request_origins = [
-    'https://webportfolio-lb.fly.dev',
-    /https:\/\/webportfolio-lb.*\.fly\.dev/,
-    'https://webportfolio-0qq0.onrender.com'  # Keep Render for now during migration
+    'https://webportfolio-0qq0.onrender.com',
+    'http://webportfolio-0qq0.onrender.com'
   ]
-  config.action_cable.url = "wss://webportfolio-lb.fly.dev/cable"
+  config.action_cable.url = "wss://webportfolio-0qq0.onrender.com/cable"
 end
