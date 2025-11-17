@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
   def index
     if logged_in?(:site_admin)
       @blogs = Blog.recent.page(params[:page]).per(5)
-    else 
+    else
       @blogs = Blog.published.recent.page(params[:page]).per(5)
     end
       @page_title = "Portfolio Blog"
@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
     if logged_in?(:site_admin) || @blog.published?
       @blog = Blog.includes(:comments).friendly.find(params[:id])
       @comment = Comment.new
-    
+
       @page_title = @blog.title
       @seo_keywords = @blog.body
     else
