@@ -1,9 +1,15 @@
 <footer class="text-muted" style="padding-top: 3rem; padding-bottom: 3rem;">
 	<div class="container">
 	  <p class="float-right">
-	  <%= link_to "View all blogs", blogs_path %> /
-	    <a href="#">Back to top</a>
+	  <%= link_to "View all blogs", blogs_path, style: "color: #358399;" %> /
+	    <a href="#" style="color: #358399;">Back to top</a>
 	  </p>
+	  <style>
+	    footer a:hover {
+	      color: #993550 !important;
+	      text-decoration: none;
+	    }
+	  </style>
 	  <%= @copyright %>
 	</div>
 </footer>
