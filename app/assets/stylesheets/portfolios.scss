@@ -108,16 +108,10 @@ footer p {
 }
 
 .portfolio-box{
-  border : 2px solid transparent;
-  -webkit-transition : border 500ms ease-out;
+  border : 2px solid transparent;    
+  -webkit-transition : border 500ms ease-out; 
   -moz-transition : border 500ms ease-out;
   -o-transition : border 500ms ease-out;
-}
-
-.portfolio-box img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 .portfolio-box:hover{
