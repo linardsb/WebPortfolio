@@ -214,6 +214,8 @@ h6 .h6{
  font-size: 1.5rem;
  display: inline;
  text-align: center;
+ margin: 0;
+ padding: 0;
  }
 
 .fa {
@@ -255,10 +257,8 @@ h6 .h6{
 .social_text {
   text-align: center;
   & li {
-    padding-right: 15px;
-    &:nth-child(3n) {
-      padding-right:0px;
-    }
+    margin: 0;
+    padding: 0;
   }
   h4 {
     color: #888;
