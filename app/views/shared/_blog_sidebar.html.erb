@@ -10,7 +10,7 @@
  
   <% if @side_bar_topics %>
       <div class="sidebar-module social_text">
-        <h4>Blog topics</h4>
+        <h4>topics</h4>
         <% @side_bar_topics.each do |topic| %>
           <p><%= link_to topic.title, topic_path(topic) %></p>
         <% end %>
