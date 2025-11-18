@@ -7,6 +7,11 @@ module BlogsHelper
     def block_code(code, language)
       CodeRay.scan(code, language).div
     end
+
+    def link(link, title, content)
+      title_attr = title.present? ? " title=\"#{title}\"" : ""
+      "<a href=\"#{link}\"#{title_attr} target=\"_blank\" rel=\"noopener noreferrer\">#{content}</a>"
+    end
   end
 
   def markdown(text)
