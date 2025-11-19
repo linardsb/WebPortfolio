@@ -5,6 +5,7 @@ module BlogsHelper
 
   class CodeRayify < Redcarpet::Render::HTML
     def block_code(code, language)
+      language = language.present? ? language.to_sym : :text
       CodeRay.scan(code, language).div
     end
 
