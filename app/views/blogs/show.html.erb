@@ -6,7 +6,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
-            <li class="breadcrumb-item"><%= link_to @blog.topic.title, topic_path(@blog.topic) %></li>
+            <% if @blog.topic.present? %>
+              <li class="breadcrumb-item"><%= link_to @blog.topic.title, topic_path(@blog.topic) %></li>
+            <% end %>
             <li class="breadcrumb-item active" aria-current="page"><%= @blog.title %></li>
           </ol>
         </nav>
@@ -17,7 +19,9 @@
       </div>
     </div>
   <hr>
-	<p><%= @blog.topic.title %></p>
+	<% if @blog.topic.present? %>
+	  <p><%= @blog.topic.title %></p>
+	<% end %>
   <hr>
 	<%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %>
 	<%= markdown @blog.body %>
