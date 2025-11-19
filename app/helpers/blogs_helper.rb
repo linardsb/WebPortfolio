@@ -16,6 +16,8 @@ module BlogsHelper
   end
 
   def markdown(text)
+    return '' if text.blank?
+
     coderayified = CodeRayify.new(filter_html: true)
 
     options = {
