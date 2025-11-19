@@ -3,9 +3,12 @@ class Blog < ApplicationRecord
 	extend FriendlyId
 	friendly_id :title, use: :slugged
 
-	validates_presence_of :title, :body, :topic_id
+	validates_presence_of :title, :body
 
 	belongs_to :topic, optional: true
+
+	scope :published, -> { where(status: 1) }
+	scope :draft, -> { where(status: 0) }
 
 	has_many :comments, dependent: :destroy
 
